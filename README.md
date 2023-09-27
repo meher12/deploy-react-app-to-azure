@@ -54,7 +54,7 @@ Get the details of an Azure Container Registry:
 ```az acr show --name sampleazurefrontendacr --resource-group frontend-rg```
 
 Create a new tag for docker image :
-```docker tag maldini12/blogs-app:v2 sampleazurefrontendacr.azurecr.io/aci-blogsapp:v1```
+```docker tag mald/blogs-app:v2 sampleazurefntendacr.azurecr.io/aci-blogsapp:v1```
 Login to ACR:
 ```az acr login --name sampleazurefrontendacr ```
 Push docker image in ACR:
@@ -62,11 +62,11 @@ Push docker image in ACR:
 
 Create Azure container:
 
-```az container create --resource-group react-rg --name appaci --image basicazureacr.azurecr.io/frontend-app-image:v1 --registry-username basicazureacr --registry-password DYeYEa9ntMSNHznVy762KPzWkxMWluYohOz9M7Pp0p+ACRDhtVoc  --ports 80```
+```az container create --resource-group react-rg --name appaci --image basicazureacr.azurecr.io/frontend-app-image:v1 --registry-username <usename> --registry-password <password> --ports 80```
 <br/>OR
-```az container create --resource-group frontend-rg --name mycontaineraci --image sampleazurefrontendacr.azurecr.io/aci-blogsapp:v1 --registry-username sampleazurefrontendacr --registry-password L0hMPrsDk8MJ2lcO2UVyp9VdjJ4qAEZO/8O0cuf1W8+ACRCo9yyG --dns-name-label aci-dns-app --ports 80```
+```az container create --resource-group frontend-rg --name mycontaineraci --image sampleazurefrontendacr.azurecr.io/aci-blogsapp:v1 --registry-username <username> --registry-password <password> --dns-name-label aci-dns-app --ports 80```
 <br/>OR
-```az container create --resource-group frontend-rg --name myacicontainer --image sampleazurefrontendacr.azurecr.io/aci-blogsapp:v1 --cpu 1 --memory 1 --registry-login-server sampleazurefrontendacr.azurecr.io --registry-username sampleazurefrontendacr --registry-password L0hMPrsDk8MJ2lcO2UVyp9VdjJ4qAEZO/8O0cuf1W8+ACRCo9yyG --ip-address Public --dns-name-label aci-app-dns --ports 80```
+```az container create --resource-group frontend-rg --name myacicontainer --image sampleazurefrontendacr.azurecr.io/aci-blogsapp:v1 --cpu 1 --memory 1 --registry-login-server sampleazurefrontendacr.azurecr.io --registry-username <username>  --registry-password <password> --ip-address Public --dns-name-label aci-app-dns --ports 80```
 
 Show container:
 
