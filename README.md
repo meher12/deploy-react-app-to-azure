@@ -63,17 +63,17 @@ Push docker image in ACR:
 Create Azure container:
 
 ```az container create --resource-group react-rg --name appaci --image basicazureacr.azurecr.io/frontend-app-image:v1 --registry-username basicazureacr --registry-password DYeYEa9ntMSNHznVy762KPzWkxMWluYohOz9M7Pp0p+ACRDhtVoc  --ports 80```
-OR
+<br/>OR
 ```az container create --resource-group frontend-rg --name mycontaineraci --image sampleazurefrontendacr.azurecr.io/aci-blogsapp:v1 --registry-username sampleazurefrontendacr --registry-password L0hMPrsDk8MJ2lcO2UVyp9VdjJ4qAEZO/8O0cuf1W8+ACRCo9yyG --dns-name-label aci-dns-app --ports 80```
-OR
+<br/>OR
 ```az container create --resource-group frontend-rg --name myacicontainer --image sampleazurefrontendacr.azurecr.io/aci-blogsapp:v1 --cpu 1 --memory 1 --registry-login-server sampleazurefrontendacr.azurecr.io --registry-username sampleazurefrontendacr --registry-password L0hMPrsDk8MJ2lcO2UVyp9VdjJ4qAEZO/8O0cuf1W8+ACRCo9yyG --ip-address Public --dns-name-label aci-app-dns --ports 80```
 
 Show container:
 
 ```az container show --name appaci --resource-group react-rg -o table```
-OR
+<br/>OR
 ```az container show --resource-group frontend-rg --name mycontaineraci  --query instanceView.state```
-OR
+<br/>OR
 ```az container show --resource-group frontend-rg --name mycontaineraci  --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table```
 
 Show log:
