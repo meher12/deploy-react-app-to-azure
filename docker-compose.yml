@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  react-nginx-app:
+    image: acrmaher.azurecr.io/app-image:latest  # Use your built Docker image here
+    #container_name: appaci
+    ports:
+      - "8000:80"  # Map host port 8080 to container port 80
+    volumes:
+      - app-data:/app  # Use the named volume 'app-data'
+    environment:
+      - NODE_ENV=production  # Set Node.js environment to production
+      - DOCKER_REGISTRY_SERVER_USERNAME=your username
+      - DOCKER_REGISTRY_SERVER_PASSWORD=your password
+
+volumes:
+  app-data:  # Define the named volume 'app-data'
+
+#We must add DOCKER_REGISTRY_SERVER_PASSWORD and DOCKER_REGISTRY_SERVER_USERNAME in app service configuration

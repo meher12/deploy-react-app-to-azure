@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class HelloWorld extends React.Component {
+
+constructor(props){
+  super(props);
+  this.state = {message: 'Hello Microsoft Azure, Cloud computing platform!'};
+  this.handleClick = this.handleClick.bind(this);
+   // This binding is necessary to make `this` work in the callback
+   this.handleChange = this.handleChange.bind(this);
 }
 
-export default App;
+handleClick(){
+  this.setState({message: 'You clicked the button!'});
+}
+
+handleChange(event){
+  this.setState({message: event.target.value});
+}
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+        <input type="text" onChange={this.handleChange}/>
+        <button onClick={this.handleClick}> Click me</button>
+      </div>
+      
+    );
+  }
+}
+
+export default HelloWorld;
